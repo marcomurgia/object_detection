@@ -1,6 +1,6 @@
 # Object Detection
 
-To the Italian Traffic Sign launch the following command:
+To decect the Italian Traffic Sign launch the following command:
 
 ./bin/object_detection --config=traffic_signs/yolov3_training_signs.cfg --model=traffic_signs/yolov3_training_signs.weights --classes=traffic_signs/classes_signs.txt --width=416 --height=416 --scale=0.0392 --rgb
 
