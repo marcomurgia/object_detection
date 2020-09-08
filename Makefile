@@ -4,16 +4,16 @@ OC4CFLAGS = `pkg-config --cflags opencv4`
 OC4LIBS = `pkg-config --libs opencv4`
 
 CFLAGS = -I. -fPIC -frtti -pthread $(OC4CFLAGS)
-LIBS = $(OC4LIBS)
+LIBS = $(OC4LIBS) -pthread
 
-OBJS := object_detection.o
+OBJS := object_detection.o 
 
 EXECUTABLE = object_detection
 OBJDIR = bin
-OPTIMIZATION = # -Os 
+OPTIMIZATION = -Os
 
 all: $(OBJS)
-	$(CC) $(OBJDIR)/object_detection.o -o $(OBJDIR)/$(EXECUTABLE) $(CFLAGS) $(LIBS)
+	$(CC) $(OBJDIR)/object_detection.o -o $(OBJDIR)/$(EXECUTABLE) $(LIBS)
 
 object_detection.o: object_detection.cpp
 	$(CC) -c $(OPTIMIZATION) object_detection.cpp -o $(OBJDIR)/object_detection.o $(CFLAGS)
